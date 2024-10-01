@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block title %}Performances de {{ user.name }}{% endblock %}
+
+{% block content %}
+    <h1 class="mt-5">Performances Enregistrées pour {{ user.name }}</h1>
+
+    <!-- Sélection de l'exercice -->
+    <form class="form-inline mb-4">
+        <label for="exerciseSelect" class="mr-2">Sélectionnez un exercice :</label>
+        <select id="exerciseSelect" class="form-control">
+            {% for exercise in data.keys() %}
+                <option value="{{ exercise }}">{{ exercise }}</option>
+            {% endfor %}
+        </select>
+    </form>
+
+    <!-- Canvas pour le graphique -->
+    <canvas id="performanceChart" width="400" height="200"></canvas>
+
+    <br>
+    <a href="{{ url_for('user_sessions', user_id=user.id) }}" class="btn btn-secondary mt-2">Retour aux séances</a>
+
+    <!-- Script pour générer le graphique -->
+    <script type="text/javascript">
+        const data = JSON.parse('{{ data | tojson | safe }}');
+        const exerciseSelect = document.getElementById('exerciseSelect');
+        const ctx = document.getElementById('performanceChart').getContext('2d');
+        let chart;
+
+        function updateChart() {
+            const exercise = exerciseSelect.value;
+            const dates = data[exercise]['dates'];
+            const values = data[exercise]['values'];
+
+            if (chart) {
+                chart.destroy();
+            }
+
+            chart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: dates,
+                    datasets: [{
+                        label: exercise,
+                        data: values,
+                        fill: false,
+                        borderColor: 'rgb(75, 192, 192)',
+                        tension: 0.1
+                    }]
+                },
+                options: {
+                    scales: {
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Date'
+                            }
+                        },
+                        y: {
+                            title: {
+                                display: true,
+                                text: 'Valeur'
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        exerciseSelect.addEventListener('change', updateChart);
+        // Initialiser le graphique avec le premier exercice
+        updateChart();
+    </script>
+{% endblock %}

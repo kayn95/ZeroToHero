@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Séances de {{ user.name }}{% endblock %}
+
+{% block content %}
+    <h1 class="mt-5">Séances pour {{ user.name }}</h1>
+    <ul class="list-group">
+        {% for session_id, exercises in sessions.items() %}
+            <li class="list-group-item">
+                <a href="{{ url_for('session', session_id=session_id, user_id=user.id) }}">Séance {{ session_id }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <br>
+    <a href="{{ url_for('user_performances', user_id=user.id) }}" class="btn btn-primary mt-3">Voir les performances de {{ user.name }}</a>
+{% endblock %}

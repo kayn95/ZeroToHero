@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}Vos Séances{% endblock %}
+
+{% block content %}
+    <h1 class="mt-5">Sélectionnez un utilisateur</h1>
+    <ul class="list-group">
+        {% for user in users %}
+            <li class="list-group-item">
+                <a href="{{ url_for('user_sessions', user_id=user.id) }}">{{ user.name }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
