@@ -7,6 +7,7 @@
     <ul class="list-group">
         {% for exercise in exercises %}
             <li class="list-group-item">
+                <a href="{{ exercise.video }}" class="btn btn-primary btn-sm float-end" target="_blank">Regarder la vidéo</a>
                 <h5>{{ exercise.name }}</h5>
                 <p>{{ exercise.description }}</p>
             </li>

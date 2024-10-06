@@ -14,28 +14,28 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
-# Données fictives pour les exercices avec descriptions
+# les exercices avec descriptions
 sessions = {
     1: [
-        {'name': 'Développé incliné', 'description': 'S1 : 4-6 rép | S2 : 6-8 rép | S3 : 8-10 rép | Repos 2min30 | Commentaire : Top set puis -10% à chaque série '},
-        {'name': 'Tractions lestées', 'description': 'S1 : 4-6 rép | S2 : 6-8 rép | S3 : 8-10 rép | Repos 2min | Commentaire : Top set puis -10% à chaque série '},
-        {'name': 'Elévation frontales', 'description': 'S1 : 10-15 rép | S2 : 10-15 rép | S3 : 10-15 rép | Repos 1min30 | Commentaire : Pic de contraction 2 secondes en haut '},
-        {'name': 'Curl incliné haltères', 'description': 'S1 : 8-12 rép | S2 : 8-12 rép | S3 : 8-12 rép | Repos 1min30 | Commentaire : /'},
-        {'name': 'Elévations latérales', 'description': 'S1 : 15-20 rép | S2 : 10-15 rép | S3 : 8-10 triche into upright row | Repos 1min | Commentaire : Raptor Set : Dernière série en dégressive mécanique '}
+        {'name': 'Développé incliné', 'description': 'S1 : 4-6 rép | S2 : 6-8 rép | S3 : 8-10 rép | Repos 2min30 | Commentaire : Top set puis -10% à chaque série ', 'video': 'https://drive.google.com/file/d/1JdH7A9ZZJQIpMOAHtOORqkRNiDbx1as4/view?usp=sharing'},
+        {'name': 'Tractions lestées', 'description': 'S1 : 4-6 rép | S2 : 6-8 rép | S3 : 8-10 rép | Repos 2min | Commentaire : Top set puis -10% à chaque série ', 'video': 'https://drive.google.com/file/d/1SgFB6rlQchiwdfRq5_JNcaiDEDDKWCPs/view?usp=sharing'},
+        {'name': 'Elévation frontales', 'description': 'S1 : 10-15 rép | S2 : 10-15 rép | S3 : 10-15 rép | Repos 1min30 | Commentaire : Pic de contraction 2 secondes en haut ', 'video': 'https://drive.google.com/file/d/1aBehrLGk_46W0qKG6VepGgn7c9Azq6qK/view?usp=sharing'},
+        {'name': 'Curl incliné haltères', 'description': 'S1 : 8-12 rép | S2 : 8-12 rép | S3 : 8-12 rép | Repos 1min30 | Commentaire : /', 'video': 'https://drive.google.com/file/d/1FeUhfHOiOLWuHuQcj6jc3QXM3-F9gvqK/view?usp=sharing'},
+        {'name': 'Elévations latérales', 'description': 'S1 : 15-20 rép | S2 : 10-15 rép | S3 : 8-10 triche into upright row | Repos 1min | Commentaire : Raptor Set : Dernière série en dégressive mécanique ', 'video': 'https://drive.google.com/file/d/16Ymi97ao1BiC6TUg_mwVG8O59ItqqW_b/view?usp=sharing'}
     ],
     2: [
-        {'name': 'High bar squat ou deadlift', 'description': 'S1 : 6-10 rép | S2 : 6-10 rép | S3 : 6-10 rép | Repos 2min | Commentaire : /'},
-        {'name': 'Romanian deadlift ou Fentes', 'description': 'S1 : 10-15 rép | S2 : 10-15 rép | S3 : 10-15 rép | Repos 1min30 | Commentaire : /'},
-        {'name': 'Leg Curl superset + Leg extension', 'description': 'S1 : 8-12 rép | S2 : 8-12 rép | S3 : 8-12 rép | Repos 0min30 | Commentaire : Se reposer 30 secondes entre chaque exercice'},
-        {'name': 'Extension mollets', 'description': 'S1 : 12-15 rép | S2 : 8-12 rép | S3 : 6-10 rép puis dégressive amrap | Repos 1min | Commentaire : Tempo 1-2-2-1'},
-        {'name': 'Upright row penché', 'description': 'S1 : 15-20 rép | S2 : 10-15 rép | S3 : 6-10 rép puis dégressive amrap | Repos 1min | Commentaire : Augmenter le poids à chaque série'}
+        {'name': 'High bar squat ou deadlift', 'description': 'S1 : 6-10 rép | S2 : 6-10 rép | S3 : 6-10 rép | Repos 2min | Commentaire : /', 'video': 'https://drive.google.com/file/d/1o00q67tlrWxCkXL2q1Ls2IxzddCNASPX/view?usp=sharing'},
+        {'name': 'Romanian deadlift ou Fentes', 'description': 'S1 : 10-15 rép | S2 : 10-15 rép | S3 : 10-15 rép | Repos 1min30 | Commentaire : /', 'video': 'https://www.youtube.com/watch?v=BBGEG21CGo0'},
+        {'name': 'Leg Curl superset + Leg extension', 'description': 'S1 : 8-12 rép | S2 : 8-12 rép | S3 : 8-12 rép | Repos 0min30 | Commentaire : Se reposer 30 secondes entre chaque exercice', 'video': 'https://drive.google.com/drive/folders/1lJ7bYk66fiAVsZWJm9-a33Szb9xfj70N'},
+        {'name': 'Extension mollets', 'description': 'S1 : 12-15 rép | S2 : 8-12 rép | S3 : 6-10 rép puis dégressive amrap | Repos 1min | Commentaire : Tempo 1-2-2-1', 'video': 'https://drive.google.com/file/d/1QQnCW4lDx7wl3Or-OEHMvkHReBzqLnI8/view?usp=sharing'},
+        {'name': 'Upright row penché', 'description': 'S1 : 15-20 rép | S2 : 10-15 rép | S3 : 6-10 rép puis dégressive amrap | Repos 1min | Commentaire : Augmenter le poids à chaque série', 'video': 'https://drive.google.com/file/d/1xyrdnvGxg_F2seKRtXChcx0nUjl3yTOT/view?usp=sharing'}
     ],
     3: [
-        {'name': 'Overhead press', 'description': 'S1 : 4-6 rép | S2 : 6-8 rép | S3 : 8-10 rép | Repos 2min30 | Commentaire : Top set puis -10% à chaque série'},
-        {'name': 'Développé couché', 'description': 'S1 : 4-6 rép | S2 : 6-8 rép | S3 : 8-10 rép | Repos 2min | Commentaire : Top set puis -10% à chaque série'},
-        {'name': 'Tractions neutres focus bras', 'description': 'S1 : 8-12 rép | S2 : 8-12 rép | S3 : 8-12 rép | Repos 1min30 | Commentaire : Tirer avec les bras, pas le dos'},
-        {'name': 'Oiseau assis prise neutre', 'description': 'S1 : 10-15 rép | S2 : 10-15 rép | S3 : 10-15 rép | Repos 1min | Commentaire : Coudes perpendiculaires au corps'},
-        {'name': 'Upright row', 'description': 'S1 : 12-15 rép | S2 : 8-12 rép | S3 : 6-10 rép puis dégressive amrap | Repos 1min | Commentaire : Augmenter le poids à chaque série'}
+        {'name': 'Overhead press', 'description': 'S1 : 4-6 rép | S2 : 6-8 rép | S3 : 8-10 rép | Repos 2min30 | Commentaire : Top set puis -10% à chaque série', 'video': 'https://drive.google.com/file/d/1xyrdnvGxg_F2seKRtXChcx0nUjl3yTOT/view?usp=sharing'},
+        {'name': 'Développé couché', 'description': 'S1 : 4-6 rép | S2 : 6-8 rép | S3 : 8-10 rép | Repos 2min | Commentaire : Top set puis -10% à chaque série', 'video': 'https://drive.google.com/file/d/1tz9u4ovnZEGIHd8BPecZUJOR7Td_ZxmV/view?usp=sharing'},
+        {'name': 'Tractions neutres focus bras', 'description': 'S1 : 8-12 rép | S2 : 8-12 rép | S3 : 8-12 rép | Repos 1min30 | Commentaire : Tirer avec les bras, pas le dos', 'video': 'https://www.youtube.com/watch?v=BBGEG21CGo0'},
+        {'name': 'Oiseau assis prise neutre', 'description': 'S1 : 10-15 rép | S2 : 10-15 rép | S3 : 10-15 rép | Repos 1min | Commentaire : Coudes perpendiculaires au corps', 'video': 'https://drive.google.com/file/d/1rC-T475PmCMUQtkrNCbhYWKU9OwkB7Oz/view?usp=sharing'},
+        {'name': 'Upright row', 'description': 'S1 : 12-15 rép | S2 : 8-12 rép | S3 : 6-10 rép puis dégressive amrap | Repos 1min | Commentaire : Augmenter le poids à chaque série', 'video': 'https://drive.google.com/file/d/18w0fc-Emieqo55Sh-PXadQZDLbgfoD4I/view?usp=sharing'}
     ]
 }
 

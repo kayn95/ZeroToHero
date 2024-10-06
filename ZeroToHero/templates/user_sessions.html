@@ -7,7 +7,7 @@
     <ul class="list-group">
         {% for session_id, exercises in sessions.items() %}
             <li class="list-group-item">
-                <a href="{{ url_for('session', session_id=session_id, user_id=user.id) }}">Séance {{ session_id }}</a>
+                <a href="{{ url_for('session', session_id=session_id, user_id=user.id) }}"style="text-decoration: none;">Séance {{ session_id }}</a>
             </li>
         {% endfor %}
     </ul>
